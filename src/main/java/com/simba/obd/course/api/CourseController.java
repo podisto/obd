@@ -26,7 +26,7 @@ public class CourseController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute CourseFormDTO dto, @RequestParam("file") MultipartFile files) {
+    public String create(@ModelAttribute CourseFormDTO dto, @RequestParam("files") MultipartFile[] files) {
         courseService.add(dto, files);
         return null;
     }

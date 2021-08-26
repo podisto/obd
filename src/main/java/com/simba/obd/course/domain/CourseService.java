@@ -9,5 +9,5 @@ import org.springframework.web.multipart.MultipartFile;
 // The API interface
 public interface CourseService {
 
-    void add(CourseFormDTO form, MultipartFile files);
+    void add(CourseFormDTO form, MultipartFile[] files);
 }

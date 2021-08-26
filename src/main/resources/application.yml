@@ -4,8 +4,9 @@ server:
 spring:
   servlet:
     multipart:
-      max-file-size: 2MB
-      max-request-size: 2MB
+      max-file-size: 50MB
+      max-request-size: 60MB
+      file-size-threshold: 2KB
   thymeleaf:
     cache: false
     mode: HTML
@@ -16,3 +17,6 @@ spring:
       static-locations: file:src/main/resources/static/
       cache:
         period: 0
+
+application:
+  upload-directory: /Users/podisto/medias

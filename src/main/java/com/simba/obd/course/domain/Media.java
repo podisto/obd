@@ -1,12 +1,15 @@
 package com.simba.obd.course.domain;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
  * Created by podisto on 26/08/2021.
  */
+@Getter
+@RequiredArgsConstructor
 public class Media {
-    private String filename;
-    private String uri;
-    private String type;
-    private long size;
-    private String extension;
+    private final String filename;
+    private final String type;
+    private final long size;
 }

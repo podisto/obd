@@ -18,7 +18,7 @@ public class JpaPersistenceAdapter implements CourseRepository {
     public void save(Course course) {
         CourseEntity entity = new CourseEntity();
         entity.setLocation(course.getLocation());
-        entity.setTitle(course.getTitle());
+        entity.setTitle(course.getBookTitle());
         jpaCourseRepository.save(entity);
     }
 }

@@ -1,36 +1,33 @@
 <section xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-         layout:decorate="~{layout.html}"
+         layout:decorate="~{layout_admin.html}"
          layout:fragment="content"
          xmlns:th="https://www.thymeleaf.org">
 
-    <main role="main">
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <h2>Liste des cours</h2><br>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Livre</th>
-                        <th>Lieu</th>
-                        <th>Date</th>
-                        <th>Nb Audios</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="course : ${courses}">
-                        <td th:text="${course.title}"></td>
-                        <td th:text="${course.location}"></td>
-                        <!-- <td th:text="${course.date}"></td>-->
-                        <td></td>
-                        <td>
-                            <a th:href="@{'/courses/' + ${course.title}}"><i class="fa fa-eye"></i> Details</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main>
+    <div class="container">
+        <a th:href="@{/admin/courses/new}" class="btn btn-primary">Ajouter</a>
+        <h2>Liste des cours</h2><br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Livre</th>
+                <th>Lieu</th>
+                <th>Date</th>
+                <th>Nb Audios</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course : ${courses}">
+                <td th:text="${course.title}"></td>
+                <td th:text="${course.location}"></td>
+                <!-- <td th:text="${course.date}"></td>-->
+                <td></td>
+                <td>
+                    <a th:href="@{'/courses/' + ${course.title}}"><i class="fa fa-eye"></i> Details</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </section>

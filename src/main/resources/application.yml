@@ -17,6 +17,10 @@ spring:
       static-locations: file:src/main/resources/static/
       cache:
         period: 0
+  devtools:
+    livereload:
+      enabled: true
+    add-properties: true
 
 application:
   upload-directory: /Users/podisto/medias/

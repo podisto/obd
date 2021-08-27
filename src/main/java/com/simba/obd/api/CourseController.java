@@ -15,13 +15,13 @@ import java.util.List;
  */
 @Controller
 @Slf4j
-@RequestMapping(value = "/courses")
+@RequestMapping
 @RequiredArgsConstructor
 public class CourseController {
 
     private final CourseService courseService;
 
-    @GetMapping
+    @GetMapping("/admin/courses")
     public String list(Model model) {
         List<CourseResponseDTO> courses = courseService.all();
         courses.forEach(c -> log.info("Course {}", c));
@@ -29,25 +29,25 @@ public class CourseController {
         return "courses/list";
     }
 
-    @GetMapping("/{title}")
+    @GetMapping("/courses/{title}")
     public String displaySessions(@PathVariable("title") String title, Model model) {
         log.info("display audio for course {}", title);
         CourseResponseDTO course = courseService.find(title);
         log.info("cours {}", course);
         model.addAttribute("course", course);
-        return "courses/sessions";
+        return "courses/details";
     }
 
-    @GetMapping("/nouveau")
+    @GetMapping("/admin/courses/new")
     public String displayForm(Model model) {
         model.addAttribute("courseForm", new CourseFormDTO());
         return "courses/form";
     }
 
-    @PostMapping
+    @PostMapping("/admin/courses")
     public String create(@ModelAttribute CourseFormDTO dto, @RequestParam("files") MultipartFile[] files) {
         log.info("Courses {}", dto);
         courseService.add(dto, files);
-        return "redirect:/courses";
+        return "redirect:/admin/courses";
     }
 }

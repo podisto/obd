@@ -6,8 +6,20 @@
     <main role="main">
         <div class="album py-5 bg-light">
             <div class="container">
-                <h2>Session cours</h2><br>
-
+                <h2>Session cours <span th:text="${course.title}"></span></h2><br>
+                <table class="table">
+                    <tbody>
+                    <tr th:each="media : ${course.mediasUri}">
+                        <td>
+                        <td>
+                            <!-- <img th:src="${'data:image/jpeg;charset=utf-8;base64,' + bottle.image}" alt="">-->
+                            <audio th:src="@{/audios/1.mp3}" controls>
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>

@@ -21,8 +21,8 @@
                     <tr th:each="course : ${courses}">
                         <td th:text="${course.title}"></td>
                         <td th:text="${course.location}"></td>
-                        <td th:text="${course.date}"></td>
-                        <td th:text="${course.sessionCount}"></td>
+                        <!-- <td th:text="${course.date}"></td>-->
+                        <td></td>
                         <td>
                             <a th:href="@{'/courses/' + ${course.title}}"><i class="fa fa-eye"></i> Details</a>
                         </td>

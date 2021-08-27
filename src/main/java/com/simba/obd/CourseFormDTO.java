@@ -10,6 +10,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class CourseFormDTO {
     private String title;
     private String location;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private String date;
+    //@DateTimeFormat(pattern = "dd/MM/yyyy")
+    //private String date;
 }

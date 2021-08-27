@@ -1,6 +1,7 @@
 package com.simba.obd;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -15,6 +17,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CourseServiceImpl implements CourseService {
 
     private final CourseRepository courseRepository;
@@ -25,7 +28,7 @@ public class CourseServiceImpl implements CourseService {
         List<Media> medias = Arrays.stream(files)
                 .map(storageService::storeFile)
                 .collect(Collectors.toList());
-
+        // medias.forEach(m -> log.info("{}", m));
         Course course = toCourse(form, medias);
 
         courseRepository.save(course);
@@ -35,7 +38,7 @@ public class CourseServiceImpl implements CourseService {
         Course course = new Course();
         course.setBookTitle(form.getTitle());
         course.setLocation(form.getLocation());
-        course.setDate(LocalDate.parse(form.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        // course.setDate(LocalDate.parse(form.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         course.add(medias);
         return course;
     }
@@ -50,8 +53,17 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseResponseDTO find(String title) {
-       return courseRepository.findByTitle(title)
-               .map(CourseResponseDTO::new)
-               .orElseThrow(() -> new EntityNotFoundException("Cours non trouvé"));
+        Optional<Course> optional = courseRepository.findByTitle(title);
+        if (!optional.isPresent()) {
+            throw new EntityNotFoundException("Cours non trouvé");
+        }
+
+        Course course = optional.get();
+        List<String> mediasUri = course.getMedias()
+                .stream()
+                .map(m -> storageService.retrieve(m.getFilename()))
+                .collect(Collectors.toList());
+
+        return new CourseResponseDTO(course, mediasUri);
     }
 }

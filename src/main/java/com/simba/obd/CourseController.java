@@ -32,6 +32,7 @@ public class CourseController {
     public String displaySessions(@PathVariable("title") String title, Model model) {
         log.info("display audio for course {}", title);
         CourseResponseDTO course = courseService.find(title);
+        log.info("cours {}", course);
         model.addAttribute("course", course);
         return "courses/sessions";
     }

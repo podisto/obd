@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +26,7 @@ public class CourseServiceImpl implements CourseService {
         List<Media> medias = Arrays.stream(files)
                 .map(storageService::storeFile)
                 .collect(Collectors.toList());
-        // medias.forEach(m -> log.info("{}", m));
+
         Course course = toCourse(form, medias);
 
         courseRepository.save(course);
@@ -59,9 +57,9 @@ public class CourseServiceImpl implements CourseService {
         }
 
         Course course = optional.get();
-        List<byte[]> medias = course.getMedias()
+        List<String> medias = course.getMedias()
                 .stream()
-                .map(m -> storageService.retrieve(m.getFilename()))
+                .map(Media::getFilename)
                 .collect(Collectors.toList());
 
         return new CourseResponseDTO(course, medias);

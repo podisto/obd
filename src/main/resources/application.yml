@@ -19,4 +19,4 @@ spring:
         period: 0
 
 application:
-  upload-directory: /Users/podisto/medias
+  upload-directory: /Users/podisto/medias/

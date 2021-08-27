@@ -12,10 +12,10 @@
                     <tr th:each="media : ${course.getMedias}">
                         <td>
                         <td>
-                            <!-- <img th:src="${'data:image/jpeg;charset=utf-8;base64,' + bottle.image}" alt="">-->
-                            <audio th:src="@{/audios/1.mp3}" controls>
+                            <img th:src="${'/storage/' + media}" style="max-height: 220px">
+                            <!--<audio th:src="@{/audios/1.mp3}" controls>
                                 Your browser does not support the audio element.
-                            </audio>
+                            </audio>-->
                         </td>
                     </tr>
                     </tbody>

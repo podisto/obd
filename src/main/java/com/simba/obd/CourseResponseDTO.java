@@ -13,7 +13,7 @@ public class CourseResponseDTO {
     private String title;
     private String location;
     private LocalDate date;
-    private List<String> mediasUri;
+    private List<byte[]> medias;
 
     public CourseResponseDTO(Course course) {
         this.title = course.getBookTitle();
@@ -21,8 +21,8 @@ public class CourseResponseDTO {
         this.date = course.getDate();
     }
 
-    public CourseResponseDTO(Course course, List<String> mediasUri) {
+    public CourseResponseDTO(Course course, List<byte[]> medias) {
         this(course);
-        this.mediasUri = mediasUri;
+        this.medias = medias;
     }
 }

@@ -12,5 +12,5 @@ public interface StorageService {
 
     Resource loadFileAsResource(String fileName);
 
-    String retrieve(String filename);
+    byte[] retrieve(String filename);
 }

@@ -59,11 +59,11 @@ public class CourseServiceImpl implements CourseService {
         }
 
         Course course = optional.get();
-        List<String> mediasUri = course.getMedias()
+        List<byte[]> medias = course.getMedias()
                 .stream()
                 .map(m -> storageService.retrieve(m.getFilename()))
                 .collect(Collectors.toList());
 
-        return new CourseResponseDTO(course, mediasUri);
+        return new CourseResponseDTO(course, medias);
     }
 }

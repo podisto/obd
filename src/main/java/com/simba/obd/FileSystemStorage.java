@@ -74,17 +74,13 @@ public class FileSystemStorage implements StorageService {
     }
 
     @Override
-    public String retrieve(String filename) {
-        String base64;
+    public byte[] retrieve(String filename) {
         try {
             Path path = this.fileStorageLocation.resolve(filename).normalize();
             // File file = new File(path.toString());
-            byte[] imageBytes = Files.readAllBytes(path);
-            base64 = Base64.getEncoder().encodeToString(imageBytes);
+            return Files.readAllBytes(path);
         } catch (IOException e) {
             throw new FileNotFoundException("File not found " + filename, e);
         }
-
-        return base64;
     }
 }

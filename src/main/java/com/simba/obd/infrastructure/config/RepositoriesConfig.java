@@ -1,7 +1,7 @@
-package com.simba.obd.config;
+package com.simba.obd.infrastructure.config;
 
 import com.simba.obd.domain.CourseRepository;
-import com.simba.obd.infrastructure.InMemoryCourseRepository;
+import com.simba.obd.domain.InMemoryCourseRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

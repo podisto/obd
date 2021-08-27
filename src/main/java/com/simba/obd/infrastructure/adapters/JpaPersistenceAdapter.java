@@ -1,7 +1,8 @@
-package com.simba.obd.infrastructure;
+package com.simba.obd.infrastructure.adapters;
 
 import com.simba.obd.domain.Course;
 import com.simba.obd.domain.CourseRepository;
+import com.simba.obd.infrastructure.CourseEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

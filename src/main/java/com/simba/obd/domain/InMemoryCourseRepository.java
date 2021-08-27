@@ -1,4 +1,4 @@
-package com.simba.obd.infrastructure;
+package com.simba.obd.domain;
 
 import com.simba.obd.domain.Course;
 import com.simba.obd.domain.CourseRepository;

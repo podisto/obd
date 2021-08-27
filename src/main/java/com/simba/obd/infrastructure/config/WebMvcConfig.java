@@ -1,4 +1,4 @@
-package com.simba.obd.config;
+package com.simba.obd.infrastructure.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

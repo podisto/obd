@@ -1,6 +1,6 @@
 package com.simba.obd.domain;
 
-import com.simba.obd.config.ApplicationPropertiesConfig;
+import com.simba.obd.infrastructure.config.ApplicationPropertiesConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

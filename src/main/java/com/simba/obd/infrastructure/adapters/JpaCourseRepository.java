@@ -1,5 +1,6 @@
-package com.simba.obd.infrastructure;
+package com.simba.obd.infrastructure.adapters;
 
+import com.simba.obd.infrastructure.CourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -31,7 +31,7 @@ public class FileUploadController {
     }
 
     @GetMapping("/download/{filename:.+}")
-    public String retrieve(@PathVariable("filename") String filename) {
+    public byte[] retrieve(@PathVariable("filename") String filename) {
         return storageService.retrieve(filename);
     }
 

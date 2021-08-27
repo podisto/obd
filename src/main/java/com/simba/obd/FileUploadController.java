@@ -29,30 +29,4 @@ public class FileUploadController {
 
         return new FileUploadResponse(media, downloadUri);
     }
-
-    @GetMapping("/download/{filename:.+}")
-    public byte[] retrieve(@PathVariable("filename") String filename) {
-        return storageService.retrieve(filename);
-    }
-
-
-    /*@GetMapping("/download/{filename:.+}")
-    public Resource retrieve(@PathVariable("filename") String filename, HttpServletRequest request, HttpServletResponse response) {
-        Resource resource = storageService.loadFileAsResource(filename);
-        String contentType = null;
-        try {
-            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
-        } catch (IOException e) {
-            log.info("could not determine file type");
-        }
-
-        if (contentType == null) {
-            contentType = "application/octet-stream";
-        }
-
-        response.setContentType(String.valueOf(MediaType.parseMediaType(contentType)));
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"");
-        return resource;
-
-    }*/
 }

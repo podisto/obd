@@ -1,4 +1,4 @@
-package com.simba.obd.course.domain;
+package com.simba.obd;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +10,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Media {
     private final String filename;
-    private final String type;
+    private final String contentType;
     private final long size;
 }

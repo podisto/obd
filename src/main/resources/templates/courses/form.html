@@ -7,24 +7,25 @@
         <div class="album py-5 bg-light">
             <div class="container">
                 <h2>Nouveau Cours</h2><br>
-                <form action="">
+                <form th:action="@{/courses}" th:method="post" th:object="${courseForm}" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="bookTitle">Titre Livre</label>
-                        <input type="text" id="bookTitle" class="form-control" autofocus>
+                        <input type="text" id="bookTitle" class="form-control" autofocus th:field="*{title}">
                     </div>
                     <div class="form-group">
                         <label for="date">Date</label>
-                        <input type="date" id="date" class="form-control">
+                        <input type="date" id="date" class="form-control" th:field="*{date}">
                     </div>
                     <div class="form-group">
                         <label for="location">Lieu</label>
-                        <input type="text" id="location" class="form-control">
+                        <input type="text" id="location" class="form-control" th:field="*{location}">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Cours</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input type="file" name="files" multiple class="form-control-file" id="exampleFormControlFile1">
                         <small id="files" class="form-text text-muted">Seuls les formats mp3 suivants sont autorisés</small>
                     </div>
+                    <button class="btn btn-primary" type="submit">Enregistrer</button>
                 </form>
             </div>
         </div>

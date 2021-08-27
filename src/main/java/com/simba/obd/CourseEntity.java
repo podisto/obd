@@ -1,4 +1,4 @@
-package com.simba.obd.course.infrastructure;
+package com.simba.obd;
 
 import lombok.Data;
 

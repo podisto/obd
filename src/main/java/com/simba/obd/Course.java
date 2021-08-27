@@ -1,8 +1,7 @@
-package com.simba.obd.course.domain;
+package com.simba.obd;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -17,7 +16,6 @@ public class Course {
     private String bookTitle;
     private String location;
     private LocalDate date;
-    @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
     private List<Media> medias;
 
@@ -27,5 +25,9 @@ public class Course {
 
     public void add(List<Media> medias) {
         this.medias.addAll(medias);
+    }
+
+    public int getSessionCount() {
+        return medias.size();
     }
 }

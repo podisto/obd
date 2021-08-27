@@ -1,7 +1,8 @@
-package com.simba.obd.course.domain;
+package com.simba.obd;
 
-import com.simba.obd.course.api.CourseFormDTO;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 /**
  * Created by podisto on 26/08/2021.
@@ -10,4 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 public interface CourseService {
 
     void add(CourseFormDTO form, MultipartFile[] files);
+
+    List<CourseResponseDTO> all();
+
+    CourseResponseDTO find(String title);
 }

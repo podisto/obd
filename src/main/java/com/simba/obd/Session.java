@@ -1,6 +1,4 @@
-package com.simba.obd.course.domain;
-
-import com.simba.obd.course.infrastructure.CourseEntity;
+package com.simba.obd;
 
 /**
  * Created by podisto on 26/08/2021.

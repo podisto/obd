@@ -1,8 +1,7 @@
-package com.simba.obd.course.api;
+package com.simba.obd;
 
 import lombok.Data;
-
-import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Created by podisto on 26/08/2021.
@@ -11,5 +10,6 @@ import java.time.LocalDate;
 public class CourseFormDTO {
     private String title;
     private String location;
-    private LocalDate date;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private String date;
 }

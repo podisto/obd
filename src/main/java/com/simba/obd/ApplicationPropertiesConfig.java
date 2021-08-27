@@ -1,4 +1,4 @@
-package com.simba.obd.course.infrastructure.config;
+package com.simba.obd;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

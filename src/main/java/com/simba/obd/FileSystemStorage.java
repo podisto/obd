@@ -1,6 +1,5 @@
-package com.simba.obd.course.domain;
+package com.simba.obd;
 
-import com.simba.obd.course.infrastructure.config.ApplicationPropertiesConfig;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -13,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Base64;
 
 /**
  * Created by podisto on 26/08/2021.
@@ -71,5 +71,20 @@ public class FileSystemStorage implements StorageService {
         } catch (MalformedURLException e) {
             throw new FileNotFoundException("File not found " + fileName, e);
         }
+    }
+
+    @Override
+    public String retrieve(String filename) {
+        String base64;
+        try {
+            Path path = this.fileStorageLocation.resolve(filename).normalize();
+            // File file = new File(path.toString());
+            byte[] imageBytes = Files.readAllBytes(path);
+            base64 = Base64.getEncoder().encodeToString(imageBytes);
+        } catch (IOException e) {
+            throw new FileNotFoundException("File not found " + filename, e);
+        }
+
+        return base64;
     }
 }

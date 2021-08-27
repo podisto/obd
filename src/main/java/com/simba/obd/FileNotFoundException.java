@@ -1,4 +1,4 @@
-package com.simba.obd.course.domain;
+package com.simba.obd;
 
 /**
  * Created by podisto on 26/08/2021.

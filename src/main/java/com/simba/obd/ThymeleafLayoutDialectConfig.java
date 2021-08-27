@@ -1,4 +1,4 @@
-package com.simba.obd.course.infrastructure.config;
+package com.simba.obd;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.annotation.Bean;

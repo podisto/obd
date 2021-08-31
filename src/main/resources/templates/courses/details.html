@@ -4,12 +4,11 @@
          xmlns:th="https://www.thymeleaf.org">
 
     <div class="container">
-        <h2>Session cours <span th:text="${course.title}"></span></h2><br>
+        <h2><span th:text="${course.title}"></span><span class="text text-info">(5 audios)</span></h2><br>
 
         <table class="table">
             <tbody>
             <tr th:each="media : ${course.getMedias}">
-                <td>
                 <td>
                     <!--<img th:src="${'/storage/' + media}" style="max-height: 220px">-->
                     <audio th:src="${'/storage/' + media}" controls>
